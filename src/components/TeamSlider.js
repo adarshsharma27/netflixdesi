@@ -28,7 +28,7 @@ const TeamSlider = ({ type, id }) => {
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 5,
+                    slidesToShow: 3,
                     slidesToScroll: 2,
                     infinite: true,
                     arrows: true,
@@ -52,7 +52,7 @@ const TeamSlider = ({ type, id }) => {
     };
     return (
         <>
-            <Container sx={{ padding: { lg: "padding: 40px 0px ", sx: "20px" } }}>
+            <Container style={{padding:'40px 0px'}}>
                 <Slider {...settings}>
                     {action &&
                         action.map((element) => {

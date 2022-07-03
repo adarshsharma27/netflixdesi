@@ -10,7 +10,10 @@ const Details = ({ type, setType }) => {
     const { id } = useParams();
     const [action, setAction] = useState([]);
     const [trailerUrl, setTrailerUrl] = useState();
-
+    let date = action?.release_date;
+    if (date === undefined) {
+        date = "2022-05-04";
+    }
     useEffect(() => {
         const getData = async () => {
             const ApiUrl = `https://api.themoviedb.org/3/${type}/${id}?api_key=${process.env.REACT_APP_API_KEY}`;
@@ -56,7 +59,7 @@ const Details = ({ type, setType }) => {
                     </Typography>
                     {type === "movie" ? (
                         <Typography gutterBottom variant="p" style={{ fontSize: "1.5rem", lineHeight: "2rem", color: "#fafafa" }}>
-                            {new Date(action?.release_date).toLocaleDateString("en-in", { day: "numeric", month: "short", year: "numeric" })}
+                            {new Date(date).toLocaleDateString("en-in", { day: "numeric", month: "short", year: "numeric" })}
                         </Typography>
                     ) : (
                         ""
